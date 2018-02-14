@@ -1,0 +1,7 @@
+Question 2
+Given a string a, find the longest palindromic substring contained in a. Your function definition should look like question2(a), and return a string.
+
+Explanation
+This longest palindrome implementation attempts to build a long palindrome from each indexed character in the string s. At any given step the next-longest possible palindrome exists when the next left and right characters are both added to the string resulting in an increased length of 2. If such a palindrome doesn't exist, adding a leftward character and a rightward character are tested separately to see if a palindrome can still be grown. If not, the palindrome analysis stemming from the current index breaks.
+
+Because this algorithm iterates over each of n characters, where n = len(s), with each while loop possibly iterating O(n) times, the runtime complexity is O(n^2). Additionally, the maximum storage used by the algorithm given at any time is O(n) (during string construction in the while loop), so the space requirement is linear.

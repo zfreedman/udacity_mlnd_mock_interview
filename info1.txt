@@ -1,0 +1,7 @@
+Question 1
+Given two strings s and t, determine whether some anagram of t is a substring of s. For example: if s = "udacity" and t = "ad", then the function returns True. Your function definition should look like: question1(s, t) and return a boolean True or False.
+
+Explanation
+This code runs in O(n! m) time, where n is the length of the permutated string and m is the length of the string to find the anagram in. For a string with n characters, the only non-recursive (first) call runs in O(n) time, where a recursive call is made for each of the n characters. On the first recursive call for any character, the remaining n-1 characters will also undergo a recursive call, which continues until the remaining characters in the anagram string is 0. With this logic, n x n-1 x ... x 2 x 1 gives n!. Searching within the comparer string requires searching over worst case m characters, so the time complexity is O(n!*m).
+
+Because the only variable storage lies in the inputs, this algorithm requires O(1) space.

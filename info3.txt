@@ -1,0 +1,15 @@
+Question 3
+Given an undirected graph G, find the minimum spanning tree within G. A minimum spanning tree connects all vertices in a graph with the smallest possible total weight of edges. Your function should take in and return an adjacency list structured like this:
+
+{'A': [('B', 2)],
+
+'B': [('A', 2), ('C', 5)],
+
+'C': [('B', 5)]}
+
+Vertices are represented as unique strings. The function definition should be question3(G)
+
+Explanation
+The code above is the unoptimized Prim's algorithm, which is used for finding minimum spanning trees. The algorithm starts by creating a subgraph containing 1 vertex with no outgoing nodes. From there, the graph maintains a map of foreign vertices (vertices not yet in the subgraph) as keys where the values are tuples containing the best connecting subgraph vertex and the corresponding edge weight between the subgraph and foreign vertices. During iteration, the least expensive edge from the foreign edges is chosen. Using this edge, the connecting foreign vertex is added to the subgraph. Additionally, if the new vertex connects to any undiscovered foreign nodes OR has a less expensive edge to connect to a currently known foreign known, such an edge is added or replaced, respectively.
+
+This implementation runs in O(n^2) time, because the subgraph must collect all of the original n nodes, each of which could possibly offer a better n-1 edges in the case of a complete graph. The space complexity here is O(n) for the maintained subgraph adjacency list, which has 2x(edge count) total entries, but for the minimum spanning tree the edge count is exactly n-1 or O(n).
